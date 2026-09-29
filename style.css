@@ -105,6 +105,7 @@ a{text-decoration: none;color: inherit;}
   align-items: flex-end;
   justify-content: flex-end;
   padding-bottom: 10px;
+  align-self: flex-end;
 }
 
 .scroll-btn{
@@ -221,11 +222,13 @@ a{text-decoration: none;color: inherit;}
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 5px 5px 0;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  padding: 0;
+  transition: padding 0.3s ease, transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.card:hover .card-image{
+.card:hover .card-image,
+.card:active .card-image{
+  padding: 0 6px 6px 0;
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
 }
@@ -234,8 +237,14 @@ a{text-decoration: none;color: inherit;}
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0 16px 16px 0;
+  border-radius: 24px;
   display: block;
+  transition: border-radius 0.3s ease;
+}
+
+.card:hover .card-image img,
+.card:active .card-image img{
+  border-radius: 20px;
 }
 
 .bg-purple{background-color: #7c3aed;}
@@ -243,7 +252,7 @@ a{text-decoration: none;color: inherit;}
 .bg-blue{background-color: #2563eb;}
 .bg-orange{background-color: #ea580c;}
 .card-info{padding-top: 14px;}
-.card-title{font-size: 20;font-weight: 700;}
+.card-title{font-size: 20px;font-weight: 700;}
 
 .card-category{
   font-size: 14px;
@@ -333,11 +342,15 @@ a{text-decoration: none;color: inherit;}
   .hero{min-height: auto;padding: 40px 20px 36px;}
   .hero-title{font-size: 50px;letter-spacing: -2px;}
   .hero-top{flex-direction: column;align-items: flex-start;gap: 24px;}
-  .hero-scroll-wrap{align-items: flex-start;}
+  .hero-scroll-wrap{align-items: flex-start;align-self: flex-start;margin-top: 6px;}
   .hero-bottom{flex-direction: column;gap: 20px;}
   .section-header{flex-direction: column;align-items: flex-start;gap: 12px;}
   .card{flex: 1 1 100%;}
-  .card-image{height: 260px;padding: 0 20px;}
+  .card-image{height: 260px;padding: 0;}
+  .card:hover .card-image,
+  .card:active .card-image{
+    padding: 0 6px 6px 0;
+  }
   .expertise-box{flex: 1 1 100%;}
   .expertise-container{gap: 16px;}
   .banner-text{font-size: 26px;}
